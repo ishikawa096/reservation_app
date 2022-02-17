@@ -22,18 +22,27 @@
         </div>
       </div>
       <div class="header-right">
-        <p>ログイン　登録する→ユーザー名　アイコン</p>
+      <% if user_signed_in? %>
+
+        <% current_user.name %><%= current_user.icon %>アイコン</p>
         <nav class="header-nav">
           <ul>
             <li><%= link_to "ルーム登録", :new_room %> </li>
             <li><%= link_to "予約済みルーム一覧", :reservations %> </li>
             <li><%= link_to "登録済みルーム一覧", :rooms %> </li>
             <li><%= link_to "設定", :users %> </li>
-            <li><%= link_to "ログアウト", :users %> </li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %> </li>
           </ul>
         </nav>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path %>
+          <%= link_to "登録する", new_user_registration_path %>
+        <% end %>
       </div>
     </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 
