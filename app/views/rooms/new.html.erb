@@ -11,7 +11,7 @@
       </tr>
       <tr>
         <th><%= f.label :room_introduction ,"ルーム紹介" %></th>
-        <td><%= f.text_area :email ,class:"room_introduction" %></td>
+        <td><%= f.text_area :room_introduction ,class:"room_introduction" %></td>
       </tr>
       <tr>
         <th><%= f.label :room_rate ,"料金" %></th>
@@ -26,6 +26,7 @@
         <td><%= f.text_field :room_image ,class:"room_image" %></td>
       </tr>
     </table>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <div>
       <ul>
         <li><%= f.submit "登録" ,class:"submit-button" %></li>
