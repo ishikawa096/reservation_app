@@ -4,7 +4,7 @@
   <%= render "shared/error", obj:@user %>
 
   <%= form_with model: @user do |f| %>
-    <table>
+    <table class="table">
       <tr>
         <th><%= f.label :name ,"ユーザー名" %></th>
         <td><%= f.text_field :name ,class:"name" %></td>

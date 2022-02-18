@@ -1,9 +1,6 @@
 <h3>ご予約の確認　※合計金額はroom_rate*num_peopleで計算する</h3>
-<%= "#{params[:start_at]}" %>
-<%= "#{params[:end_at]}" %>
-<%= "#{params[:num_people]}" %>
 <%= form_with model: @reservation do |f| %>
-    <table>
+    <table class="table">
       <tr>
         <th><%= f.label :room_name ,"予約するルーム名" %></th>
         <td><%= "#{params[:room_name]}" %></td>
@@ -31,7 +28,7 @@
 
     <div>
       <ul>
-        <li><%= f.submit "予約" ,class:"submit-button" %></li>
+        <li><%= f.submit "予約" ,class:"btn btn-primary" %></li>
       </ul>
     </div>
   <% end %>
