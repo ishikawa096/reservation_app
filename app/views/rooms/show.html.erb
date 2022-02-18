@@ -1,0 +1,35 @@
+<h3>ルーム詳細</h3>
+
+ <table>
+    <tr>
+      <th>ルーム名</th>
+      <td><%= @room.name %></td>
+    </tr>
+  </table>
+
+  <h3>予約する</h3>
+  <%= form_with url:"/reservations/new", method: "get" do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :start_at, "開始日" %></th>
+      <td><%= f.date_field :start_at, class:"start_at" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :end_at, "終了日" %></th>
+      <td><%= f.date_field :end_at, class:"end_at" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :num_people, "人数" %></th>
+      <td><%= f.text_field :num_people, class:"num_people" %></td>
+    </tr>
+  </table>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_rate, value: @room.rate %>
+  <%= f.hidden_field :room_name, value: @room.name %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <div>
+    <ul>
+      <li><%= f.submit "予約確認に進む" %></li>
+    </ul>
+  </div>
+  <% end %>

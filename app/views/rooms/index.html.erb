@@ -16,13 +16,13 @@
     <tbody>
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= room.room_image %></td>
+          <td><%= room.image %></td>
           <td><%= room.id %></td>
-          <td><%= room.room_name %></td>
-          <td><%= room.room_introduction %></td>
-          <td><%= room.room_rate %></td>
+          <td><%= link_to "#{room.name}", room %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.rate %></td>
           <td><%= room.user_id %></td>
-          <td><%= room.room_address %></td>
+          <td><%= room.address %></td>
 
 
         </tr>

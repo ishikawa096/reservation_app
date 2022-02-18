@@ -1,0 +1,37 @@
+<h3>ご予約の確認　※合計金額はroom_rate*num_peopleで計算する</h3>
+<%= "#{params[:start_at]}" %>
+<%= "#{params[:end_at]}" %>
+<%= "#{params[:num_people]}" %>
+<%= form_with model: @reservation do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :room_name ,"予約するルーム名" %></th>
+        <td><%= "#{params[:room_name]}" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :start_at ,"開始日" %></th>
+        <td><%= "#{params[:start_at]}" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :end_at ,"終了日" %></th>
+        <td><%= "#{params[:end_at]}" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :num_people ,"人数" %></th>
+        <td><%= "#{params[:num_people]}" %></td>
+      </tr>
+    </table>
+    <%= f.hidden_field :room_name, value: params[:room_name]  %>
+    <%= f.hidden_field :charge, value: params[:room_rate] %>
+    <%= f.hidden_field :start_at, value: params[:start_at] %>
+    <%= f.hidden_field :end_at, value: params[:end_at] %>
+    <%= f.hidden_field :num_people, value: params[:num_people] %>
+    <%= f.hidden_field :room_id, value: params[:room_id] %>
+    <%= f.hidden_field :user_id, value: params[:user_id] %>
+
+    <div>
+      <ul>
+        <li><%= f.submit "予約" ,class:"submit-button" %></li>
+      </ul>
+    </div>
+  <% end %>

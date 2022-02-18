@@ -6,24 +6,24 @@
   <%= form_with model: @room do |f| %>
     <table>
       <tr>
-        <th><%= f.label :room_name ,"ルーム名" %></th>
-        <td><%= f.text_field :room_name ,class:"room_name" %></td>
+        <th><%= f.label :name ,"ルーム名" %></th>
+        <td><%= f.text_field :name ,class:"name" %></td>
       </tr>
       <tr>
-        <th><%= f.label :room_introduction ,"ルーム紹介" %></th>
-        <td><%= f.text_area :room_introduction ,class:"room_introduction" %></td>
+        <th><%= f.label :introduction ,"ルーム紹介" %></th>
+        <td><%= f.text_area :introduction ,class:"introduction" %></td>
       </tr>
       <tr>
-        <th><%= f.label :room_rate ,"料金" %></th>
-        <td><%= f.text_field :room_rate ,class:"room_rate" %><p>一日あたりの料金を入力</p></td>
+        <th><%= f.label :rate ,"料金" %></th>
+        <td><%= f.text_field :rate ,class:"rate" %><p>一日あたりの料金を入力</p></td>
       </tr>
       <tr>
-        <th><%= f.label :room_address ,"住所" %></th>
-        <td><%= f.text_field :room_address ,class:"room_address" %></td>
+        <th><%= f.label :address ,"住所" %></th>
+        <td><%= f.text_field :address ,class:"address" %></td>
       </tr>
       <tr>
-        <th><%= f.label :room_image ,"ルーム画像" %></th>
-        <td><%= f.text_field :room_image ,class:"room_image" %></td>
+        <th><%= f.label :image ,"ルーム画像" %></th>
+        <td><%= f.text_field :image ,class:"image" %></td>
       </tr>
     </table>
     <%= f.hidden_field :user_id, value: current_user.id %>
