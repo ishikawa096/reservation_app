@@ -19,6 +19,13 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :area, value: @area %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="#">Features</a>
     <a class="p-2 text-dark" href="#">Enterprise</a>

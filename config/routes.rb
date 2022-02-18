@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :rooms
   resources :reservations
+  get 'search' => 'rooms#search'
   get 'users/account'
   get 'users/profile'
   root "top#index"
