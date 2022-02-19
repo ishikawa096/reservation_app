@@ -13,65 +13,61 @@
   </head>
 
   <body>
-      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to image_tag("logo.png", class:"logo-img"), :root %></h5>
-        <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 header">
+  <div class="header-logo my-0 mr-md-auto"><%= link_to image_tag("logo.png", class:"logo-img"), :root %></div>
+
       <div class="search-form">
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :area, value: @area %>
-    <%= f.text_field :keyword, value: @keyword %>
-    <%= f.submit "検索" %>
+  <%= form_with url: search_path, method: :get, class: "d-flex", local: true do |f| %>
+    <%= f.text_field :area, value: @area, class: 'form-control me-2', placeholder: "エリア" %>
+    <%= f.text_field :keyword, value: @keyword, class: 'form-control me-2', placeholder: "キーワード"%>
+    <%= f.submit "検索", class: 'btn d-none' %>
+  <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <%= current_user.name %><%= current_user.icon %><p>アイコン</p>
+  <nav class="my-2 my-md-0 mr-md-3">
+   <%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %>
+<%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %>
+            <%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %>
+           <%= link_to "設定", account_users_path, class: "p-2 text-dark" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %>
+  </nav>
+  <% else %>
+<%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
+          <%= link_to "登録する", new_user_registration_path ,class: "btn btn-outline-primary" %>
   <% end %>
 </div>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="#">Features</a>
-    <a class="p-2 text-dark" href="#">Enterprise</a>
-    <a class="p-2 text-dark" href="#">Support</a>
-    <a class="p-2 text-dark" href="#">Pricing</a>
-  </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
-</div>
 
-    <header>
-      <div class="header-left">
-        <div class="header-logo">
-          <%= link_to image_tag("logo.png", class:"logo-img"), :root %>
-        </div>
-        <div class="header-search">
-          <p>サーチ欄</p>
-        </div>
-      </div>
       <div class="header-right">
       <% if user_signed_in? %>
-
-        <% current_user.name %><%= current_user.icon %>アイコン</p>
-        <nav class="header-nav">
+        <nav>
           <ul>
-            <li><%= link_to "ルーム登録", :new_room %> </li>
-            <li><%= link_to "予約済みルーム一覧", :reservations %> </li>
-            <li><%= link_to "登録済みルーム一覧", :rooms %> </li>
-            <li><%= link_to "設定", :users %> </li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %> </li>
+            <li><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %> </li>
+            <li><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %> </li>
+            <li><%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %> </li>
+           <%# <li><%= link_to "設定", {controller: "users", action: "edit", id: "account"}, class: "p-2 text-dark" %> </li> %>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %> </li>
           </ul>
         </nav>
         <% else %>
-          <%= link_to "ログイン", new_user_session_path %>
-          <%= link_to "登録する", new_user_registration_path %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
+          <%= link_to "登録する", new_user_registration_path ,class: "btn btn-outline-primary" %>
         <% end %>
       </div>
     </header>
-
+<% if notice.present? %>
     <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
     <p class="alert"><%= alert %></p>
-    <div class ="container">
+        <% end %>
       <%= yield %>
-    </div>
 
-    <footer>
+    <footer class="align-items-center footer">
+    <div class="align-items-center footer">
       <p>©</p>
+      </div>
     </footer>
   </body>
 </html>

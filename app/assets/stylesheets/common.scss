@@ -10,11 +10,16 @@
   min-height: 100vh;
  }
 
+ p, .alert {
+   padding: 0px;
+   margin: 0px;
+ }
+
  a,ul,li {
    text-decoration: none;
  }
 
- header,footer{
+ .header, .footer{
   background-color: #131317;
   width: 100%;
   color: #fff;
@@ -50,7 +55,7 @@ footer {
 }
 
 @media screen and (max-width: 1080px) {
-  .header-search {
+  .search-form {
     display: none;
   }
 }
@@ -63,6 +68,17 @@ footer {
 .header-nav {
   background-color: #fff;
 }
+
+.sidebar {
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+  min-height: 0;
+}
+}
+
 
 @media screen and (max-width: 1080px) {
 }

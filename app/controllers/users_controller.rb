@@ -18,11 +18,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+        @user = current_user
+
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
+
   end
 
   def update
@@ -39,9 +41,12 @@ class UsersController < ApplicationController
   end
 
   def account
+    @user = current_user
   end
 
   def profile
+    @user = current_user
+
   end
 
   private
