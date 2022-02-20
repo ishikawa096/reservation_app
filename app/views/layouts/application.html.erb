@@ -32,15 +32,8 @@
         </div>
         <div class='header-icon'>
         <%= image_tag current_user.icon, class: 'header-user-icon rounded-circle'%></div>
-  <% else %>
-<%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
-          <%= link_to "登録する", new_user_registration_path ,class: "btn btn-outline-primary" %>
-  <% end %>
-  </div>
-</div>
-
-<div class="card nav-card d-none" style="width: 15rem;">
-<nav>
+        <div class="card nav-card d-none position-absolute" style="width: 15rem;">
+          <nav>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %></li>
     <li class="list-group-item"><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %></li>
@@ -50,6 +43,12 @@
   <div class="card-header"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %></div>
   </nav>
 </div>
+  <% else %>
+<%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
+          <%= link_to "登録する", new_user_registration_path ,class: "btn btn-outline-primary" %>
+  <% end %>
+  </div>
+</div>
     </header>
 <% if notice.present? %>
     <p class="notice"><%= notice %></p>
@@ -57,7 +56,9 @@
     <% if alert.present? %>
     <p class="alert"><%= alert %></p>
         <% end %>
+        <main>
       <%= yield %>
+      </main>
 
     <footer class="align-items-center footer">
     <div class="align-items-center footer">

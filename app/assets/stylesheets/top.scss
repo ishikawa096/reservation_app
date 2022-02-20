@@ -1,3 +1,66 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.firstview {
+  background-image: image-url("img_cover_top.jpg");
+  height: 600px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.top-content {
+display: block;
+height: 300px;
+padding-top: 30px;
+}
+
+.top-search {
+  padding: 0 30px;
+  margin-top: 50px;
+}
+.top-form {
+  margin-bottom: 10px;
+}
+
+.recommend {
+  margin: 50px;
+}
+
+.recommend-area-container {
+  display: block;
+  justify-content: space-between;
+
+}
+
+
+.recommend-area {
+  min-height: 400px;
+  min-width: 250px;
+  background-size: cover;
+  border: none;
+  position: relative;
+}
+
+.area-1 {
+  background-image: image-url("img_tokyo.jpg");
+}
+
+.area-2 {
+  background-image: image-url("img_osaka.jpg");
+}
+
+.area-3 {
+  background-image: image-url("img_kyoto.jpg");
+}
+
+.area-4 {
+  background-image: image-url("img_sapporo.jpg");
+}
+.area-title {
+  bottom: 0px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
