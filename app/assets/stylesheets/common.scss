@@ -41,7 +41,7 @@ footer {
 .header-left {
   display: flex;
   flex-direction: row;
-  position: absolute;
+
   left: 50px
 }
 
@@ -49,14 +49,10 @@ footer {
   display: block;
 }
 
-.header-user-icon {
-  height: 50px;
-  width:  50px;
-}
-
-.header-search {
-  display: block;
-
+.search-form {
+  display: flex;
+  align-items: center;
+  padding: auto;
 }
 
 @media screen and (max-width: 1080px) {
@@ -66,12 +62,25 @@ footer {
 }
 
 .header-right {
-  position: absolute;
+  display: flex;
+  align-items: center;
   right: 50px;
 }
 
-.header-nav {
-  background-color: #fff;
+.header-user-icon {
+  height: 70px;
+  width:  70px;
+}
+
+.header-name {
+  display: block;
+  font-size: 1.2em;
+  margin-right: 20px;
+}
+
+.nav-card {
+  float: right;
+  z-index: 99;
 }
 
 .sidebar {

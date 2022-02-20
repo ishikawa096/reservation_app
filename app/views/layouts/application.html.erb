@@ -14,47 +14,42 @@
 
   <body>
     <header>
-      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 header">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 header">
+      <div class="header-left">
   <div class="header-logo my-0 mr-md-auto"><%= link_to image_tag("logo.png", class:"logo-img"), :root %></div>
-
       <div class="search-form">
-  <%= form_with url: search_path, method: :get, class: "d-flex", local: true do |f| %>
+  <%= form_with url: search_path, method: :get, class: "d-flex search-form", local: true do |f| %>
     <%= f.text_field :area, value: @area, class: 'form-control me-2', placeholder: "エリア" %>
     <%= f.text_field :keyword, value: @keyword, class: 'form-control me-2', placeholder: "キーワード"%>
     <%= f.submit "検索", class: 'btn d-none' %>
   <% end %>
       </div>
+      </div>
+      <div class="header-right">
       <% if user_signed_in? %>
-        <%= current_user.name %><%= image_tag current_user.icon, class: 'header-user-icon'%>
-  <nav class="my-2 my-md-0 mr-md-3">
-   <%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %>
-<%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %>
-            <%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %>
-           <%= link_to "設定", account_users_path, class: "p-2 text-dark" %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %>
-  </nav>
+       <div class='header-name'>
+        <%= current_user.name %>
+        </div>
+        <div class='header-icon'>
+        <%= image_tag current_user.icon, class: 'header-user-icon rounded-circle'%></div>
   <% else %>
 <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
           <%= link_to "登録する", new_user_registration_path ,class: "btn btn-outline-primary" %>
   <% end %>
+  </div>
 </div>
 
-      <div class="header-right">
-      <% if user_signed_in? %>
-        <nav>
-          <ul>
-            <li><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %> </li>
-            <li><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %> </li>
-            <li><%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %> </li>
-           <%# <li><%= link_to "設定", {controller: "users", action: "edit", id: "account"}, class: "p-2 text-dark" %> </li> %>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %> </li>
-          </ul>
-        </nav>
-        <% else %>
-          <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
-          <%= link_to "登録する", new_user_registration_path ,class: "btn btn-outline-primary" %>
-        <% end %>
-      </div>
+<div class="card nav-card d-none" style="width: 15rem;">
+<nav>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "設定", account_users_path, class: "p-2 text-dark" %></li>
+  </ul>
+  <div class="card-header"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %></div>
+  </nav>
+</div>
     </header>
 <% if notice.present? %>
     <p class="notice"><%= notice %></p>

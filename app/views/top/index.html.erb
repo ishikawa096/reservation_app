@@ -9,4 +9,15 @@
 大阪
 京都
 札幌</p>
+<div class="card" style="width: 15rem;">
+<nav>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "設定", account_users_path, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %></li>
+  </ul>
+  </nav>
+</div>
 </section>
