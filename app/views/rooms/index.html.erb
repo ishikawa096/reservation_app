@@ -16,7 +16,7 @@
     <tbody>
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= room.image %></td>
+          <td><%= image_tag room.image, alt: 'ルーム画像', class: 'room_img' %></td>
           <td><%= room.id %></td>
           <td><%= link_to "#{room.name}", room %></td>
           <td><%= room.introduction %></td>

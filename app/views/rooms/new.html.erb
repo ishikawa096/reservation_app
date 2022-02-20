@@ -23,7 +23,7 @@
       </tr>
       <tr>
         <th><%= f.label :image ,"ルーム画像" %></th>
-        <td><%= f.text_field :image ,class:"image" %></td>
+        <td><%= f.file_field :image ,class:"image" %></td>
       </tr>
     </table>
     <%= f.hidden_field :user_id, value: current_user.id %>
