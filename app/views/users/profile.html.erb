@@ -1,1 +1,33 @@
-<h3>プロフィール</h3>
+  <%= render "shared/sidebar" %>
+<div class="col-md-10 ml-sm-auto col-lg-10 px-4">
+    <div>
+  <%= render "shared/error", obj:@user %>
+    <table class="table">
+      <tr>
+      <th><h3>プロフィール</h3></th>
+      <tr>
+        <td><%= image_tag current_user.icon, class: 'header-user-icon rounded-circle'%></td>
+      </tr>
+      <%= form_with model: @user, name: :profile_update do |f| %>
+      <tr>
+        <th><%= f.label :icon ,"アイコン画像" %></th>
+        <td><%= f.file_field :icon, class:"icon" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :name ,"名前" %></th>
+        <td><%= f.text_field :name ,class:"name" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :introduction ,"自己紹介" %></th>
+        <td><%= f.text_area :introduction ,class:"introduction" %></td>
+      </tr>
+    <tr>
+        <td>
+        <%= f.submit "プロフィール更新", class:"btn btn-primary", name: :profile_update %></td>
+    </tr>
+  <% end %>
+  </table>
+  </div>
+    </div>
+      </div>
+      </div>

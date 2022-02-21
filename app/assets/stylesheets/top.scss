@@ -25,19 +25,18 @@ padding-top: 30px;
 }
 
 .recommend {
-  margin: 50px;
+  margin: 50px 0;
 }
 
 .recommend-area-container {
   display: block;
   justify-content: space-between;
-
+  width: 100vw;
 }
-
 
 .recommend-area {
   min-height: 400px;
-  min-width: 250px;
+  max-width: 300px;
   background-size: cover;
   border: none;
   position: relative;
