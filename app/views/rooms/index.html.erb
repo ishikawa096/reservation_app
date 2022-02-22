@@ -3,12 +3,12 @@
   <h3 class="col-12">検索結果： <%= Room.search(@area, @keyword).count %>件</h3>
   <% @rooms.each do |room| %>
     <%= link_to room, class: 'link' do %>
-    <div class="card" style="width: 18rem;">
-<%= image_tag room.image, alt: 'ルーム画像', class: 'index-room-img bd-placeholder-img card-img-top' %>
-  <div class="card-body">
+    <div class="card col-lg-3 col-sm-5 m-3 p-0 room-index-card">
+<%= image_tag room.image, alt: 'ルーム画像', class: 'card-img-top index-room-img' %>
+  <div class="card-body room-index-card-body">
     <h5 class="card-title"><%= link_to "#{room.name}", room %></h5>
     <p class="card-text"><%= room.address %></p>
-    <p class="index-rate"><%= room.rate %></a>
+    <p class="index-rate">￥<%= room.rate %> /日</p>
   </div>
   </div>
   <% end %>

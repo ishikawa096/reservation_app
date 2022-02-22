@@ -5,7 +5,7 @@ class Reservation < ApplicationRecord
   validates :num_people, presence: true
   validates :start_at, presence: true
   validates :end_at, presence: true
-  validate :end_at_is_after_today
+  validate :start_at_is_after_today
   validate :end_at_is_after_start_at
 
   def start_at_is_after_today

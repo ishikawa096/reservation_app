@@ -18,7 +18,7 @@
     <tbody>
       <% @reservations.each do |reserv| %>
         <tr>
-          <td><%= image_tag "room#{reserv.room_id}.jpeg" %></td>
+          <td><%= image_tag @rooms.find(params[id: reserv.room_id]).image %></td>
           <td><%= reserv.room_name %></td>
           <td><%= reserv.id %></td>
           <td><%= reserv.charge %></td>

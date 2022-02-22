@@ -5,7 +5,21 @@
   padding: 30px;
 }
 
+.index-room-img {
+  height: 170px;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: 50% 50%;;
+}
+
+.room-index-card {
+  max-height: 300px;
+  overflow: hidden;
+}
+
 .index-rate {
+  display: block;
+  align-content: flex-end;
   text-align: end;
 }
 
