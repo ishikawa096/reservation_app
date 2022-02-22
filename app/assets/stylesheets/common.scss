@@ -22,6 +22,11 @@
    text-decoration: none;
  }
 
+ label {
+   display: block;
+ }
+
+
  .header, .footer{
   background-color: #131317;
   width: 100%;
@@ -70,7 +75,8 @@ footer {
   padding-right: 20px;
 }
 
-.header-user-icon {
+.user-icon {
+  border-radius: 50% !important;
   height: 70px;
   width:  70px;
 }

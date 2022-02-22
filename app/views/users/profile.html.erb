@@ -6,7 +6,7 @@
       <tr>
       <th><h3>プロフィール</h3></th>
       <tr>
-        <td><%= image_tag current_user.icon, class: 'header-user-icon rounded-circle'%></td>
+        <td><%= image_tag current_user.icon, class: 'user-icon' %></td>
       </tr>
       <%= form_with model: @user, name: :profile_update do |f| %>
       <tr>
