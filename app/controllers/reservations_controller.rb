@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
-    @rooms = Room.all
+    @reservations = current_user.reservations
+    @rooms = Room.where(params[Reservation.ids])
   end
 
   def new
@@ -45,6 +45,6 @@ class ReservationsController < ApplicationController
      private
 
   def reservation_params
-    params.require(:reservation).permit(:room_name, :start_at, :end_at, :charge, :num_people, :room_id, :user_id)
+    params.require(:reservation).permit(:room_name, :start_at, :end_at, :charge, :num_people, :room_id, :user_id, :room_image)
   end
 end

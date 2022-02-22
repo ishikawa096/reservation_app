@@ -1,5 +1,5 @@
 
-<p>予約済みルーム一覧</p>
+<h3>あなたの予約一覧</h3>
 
 <table class="table">
     <thead>
@@ -18,8 +18,8 @@
     <tbody>
       <% @reservations.each do |reserv| %>
         <tr>
-          <td><%= image_tag @rooms.find(params[id: reserv.room_id]).image %></td>
-          <td><%= reserv.room_name %></td>
+          <td><%= image_tag reserv.room.image, class: "my_rooms_image" %></td>
+          <td><%= link_to "#{reserv.room.name}", room_url(reserv.room_id) %></td>
           <td><%= reserv.id %></td>
           <td><%= reserv.charge %></td>
           <td><%= reserv.user_id %></td>
@@ -31,5 +31,3 @@
       <% end %>
     </tbody>
   </table>
-
-</main>
