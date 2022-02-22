@@ -39,6 +39,10 @@ class RoomsController < ApplicationController
     render "index"
   end
 
+    def my_rooms
+    @rooms = current_user.rooms
+  end
+
     private
 
   def room_params

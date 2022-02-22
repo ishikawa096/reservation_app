@@ -1,33 +1,17 @@
-<main>
-  <h3>ルーム一覧</h3>
-
-   <table class="table">
-    <thead>
-      <tr>
-        <th>ルーム画像</th>
-        <th>ID</th>
-        <th>ルーム名</th>
-        <th>ルーム紹介</th>
-        <th>料金</th>
-        <th>ユーザーid</th>
-        <th>住所</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @rooms.each do |room| %>
-        <tr>
-          <td><% if room.image.present? %><%= image_tag room.image, alt: 'ルーム画像', class: 'room_img' %><% end %></td>
-          <td><%= room.id %></td>
-          <td><%= link_to "#{room.name}", room %></td>
-          <td><%= room.introduction %></td>
-          <td><%= room.rate %></td>
-          <td><%= room.user_id %></td>
-          <td><%= room.address %></td>
-
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-</main>
+<div class="room-index-container">
+  <div class="row">
+  <h3 class="col-12">検索結果： <%= Room.search(@area, @keyword).count %>件</h3>
+  <% @rooms.each do |room| %>
+    <%= link_to room, class: 'link' do %>
+    <div class="card" style="width: 18rem;">
+<%= image_tag room.image, alt: 'ルーム画像', class: 'index-room-img bd-placeholder-img card-img-top' %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to "#{room.name}", room %></h5>
+    <p class="card-text"><%= room.address %></p>
+    <p class="index-rate"><%= room.rate %></a>
+  </div>
+  </div>
+  <% end %>
+<% end %>
+  </div>
+</div>

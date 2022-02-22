@@ -4,6 +4,7 @@
 <table class="table">
     <thead>
       <tr>
+        <th>ルーム画像</th>
         <th>予約したルーム名</th>
         <th>ID</th>
         <th>合計金額</th>
@@ -15,16 +16,17 @@
       </tr>
     </thead>
     <tbody>
-      <% @reservations.each do |reservation| %>
+      <% @reservations.each do |reserv| %>
         <tr>
-          <td><%= reservation.room_name %></td>
-          <td><%= reservation.id %></td>
-          <td><%= reservation.charge %></td>
-          <td><%= reservation.user_id %></td>
-          <td><%= reservation.start_at %></td>
-          <td><%= reservation.end_at %></td>
-          <td><%= reservation.num_people %></td>
-          <td><%= reservation.created_at %></td>
+          <td><%= image_tag "room#{reserv.room_id}.jpeg" %></td>
+          <td><%= reserv.room_name %></td>
+          <td><%= reserv.id %></td>
+          <td><%= reserv.charge %></td>
+          <td><%= reserv.user_id %></td>
+          <td><%= reserv.start_at %></td>
+          <td><%= reserv.end_at %></td>
+          <td><%= reserv.num_people %></td>
+          <td><%= reserv.created_at %></td>
         </tr>
       <% end %>
     </tbody>

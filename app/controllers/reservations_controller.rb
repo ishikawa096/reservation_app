@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
-    @room = Room.where(id: @reservations.ids)
+
   end
 
   def new

@@ -37,7 +37,7 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %></li>
     <li class="list-group-item"><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %></li>
-    <li class="list-group-item"><%= link_to "登録済みルーム一覧", :rooms, class: "p-2 text-dark" %></li>
+    <li class="list-group-item"><%= link_to "登録済みルーム一覧", my_rooms_rooms_path, class: "p-2 text-dark" %></li>
     <li class="list-group-item"><%= link_to "設定", account_users_path, class: "p-2 text-dark" %></li>
   </ul>
   <div class="card-header"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %></div>

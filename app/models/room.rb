@@ -18,4 +18,11 @@ class Room < ApplicationRecord
       @search.where('introduction like? OR name like?', "%#{keyword}%", "%#{keyword}%")
     end
   end
+
+  before_create :default_image
+  def default_image
+    if !self.image.attached?
+      self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_image.jpg')), filename: 'default_image.jpg', content_type: 'image/jpg')
+    end
+  end
 end

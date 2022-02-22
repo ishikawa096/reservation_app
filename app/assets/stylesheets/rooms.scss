@@ -1,6 +1,14 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.room-index-container {
+  padding: 30px;
+}
+
+.index-rate {
+  text-align: end;
+}
+
 .room-show-container {
   padding: 30px;
 }
@@ -31,4 +39,9 @@
 .room-show-nav {
   padding: 20px;
   border: 1px solid #eaedef;
+}
+
+.my_rooms_image {
+  width: auto;
+  max-height: 120px;
 }

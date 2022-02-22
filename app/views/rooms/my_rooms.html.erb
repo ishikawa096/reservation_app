@@ -1,0 +1,26 @@
+<p>登録済みルーム一覧</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= image_tag room.image, class: "my_rooms_image" %></td>
+          <td><%= link_to "#{room.name}", room %></td>
+          <td><%= room.introduction %></td>
+          <td>￥<%= room.rate %> /日</td>
+          <td><%= room.created_at %></td>
+          <td>変更・削除ボタン</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

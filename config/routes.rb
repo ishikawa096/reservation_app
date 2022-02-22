@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       get :profile
     end
   end
-  resources :rooms
+  resources :rooms do
+    collection do
+      get :my_rooms
+    end
+  end
   resources :reservations
   get 'search' => 'rooms#search'
 
