@@ -7,7 +7,7 @@
         <th>ルーム名</th>
         <th>ルーム紹介</th>
         <th>料金</th>
-        <th>作成日</th>
+        <th>作成日時</th>
         <th></th>
       </tr>
     </thead>
@@ -18,7 +18,7 @@
           <td><%= link_to "#{room.name}", room %></td>
           <td><%= room.introduction %></td>
           <td>￥<%= room.rate %> /日</td>
-          <td><%= room.created_at %></td>
+          <td><%= room.created_at.to_s(:datetime_jp) %></td>
           <td>変更・削除ボタン</td>
         </tr>
       <% end %>

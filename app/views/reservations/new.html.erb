@@ -1,3 +1,4 @@
+<%= render "shared/error", obj:@reservation %>
 <h3>予約内容確認</h3>
 <%= form_with model: @reservation do |f| %>
     <table class="table">
@@ -20,7 +21,7 @@
         <td><p>使用日数：<%= @days %>日</p></td>
       </tr>
       <tr>
-        <td><%= "人数：#{params[:num_people]}人" %></td>
+        <td><%= "人数：#{params[:num_people].to_i}人" %></td>
       </tr>
       <tr>
         <th><%= f.label :charge ,"合計金額" %></th>

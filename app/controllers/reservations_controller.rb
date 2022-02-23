@@ -6,10 +6,20 @@ class ReservationsController < ApplicationController
 
   def new
     @room = Room.find(params[:room_id])
-    if params[:start_at].blank? || params[:end_at].blank? || params[:num_people].blank?
-      flash[:notice] = "予約情報を入力してください"
-      redirect_to room_url(@room)
-    elsif
+    @user = @room.user
+    if params[:start_at].blank? || params[:end_at].blank?
+      flash.now[:alert] = "開始日と終了日を選択してください"
+      render "rooms/show"
+    elsif params[:start_at].to_date < Date.today
+      flash.now[:alert] = "開始日は今日以降の日付を選択してください"
+      render "rooms/show"
+    elsif params[:end_at] < params[:start_at]
+      flash.now[:alert] = "終了日は開始日より後の日付を選択してください"
+      render "rooms/show"
+    elsif params[:num_people].blank? || params[:num_people].to_i <= 0
+      flash.now[:alert] = "人数は1人以上入力してください"
+      render "rooms/show"
+    else
       @reservation = Reservation.new
       @days = ( params[:end_at].to_date - params[:start_at].to_date ).to_i
       @days = 1 if @days == 0
@@ -22,10 +32,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
       if @reservation.save
         flash[:notice] = "新規予約が完了しました"
-        redirect_to room_url(@room)
+        redirect_to :reservations
       else
-        render :root
-        flash[:alert] = "予約できませんでした"
+        @reservation = Reservation.new(reservation_params)
+        render "top/index"
+        flash.now[:alert] = "予約できませんでした"
     end
   end
 

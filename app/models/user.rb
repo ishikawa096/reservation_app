@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_one_attached :icon
 
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :name, presence: true, length: { maximum: 25 }
+  validates :email, presence: true, uniqueness: true, inclusion: { in: ["@"] },  format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\z/i }
   # validates :password, presence: true
 
   before_create :default_icon

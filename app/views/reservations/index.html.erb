@@ -26,7 +26,7 @@
           <td><%= reserv.start_at %></td>
           <td><%= reserv.end_at %></td>
           <td><%= reserv.num_people %></td>
-          <td><%= reserv.created_at %></td>
+          <td><%= reserv.created_at.to_s(:datetime_jp) %></td>
         </tr>
       <% end %>
     </tbody>
