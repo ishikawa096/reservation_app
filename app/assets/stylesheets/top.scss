@@ -6,6 +6,7 @@
   background-image: image-url("img_cover_top.jpg");
   height: 600px;
   background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
 }
@@ -40,7 +41,7 @@ padding-top: 30px;
   background-size: cover;
   border: none;
   position: relative;
-
+  background-position: center;
 }
 
 .area-1 {
@@ -63,4 +64,5 @@ padding-top: 30px;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+  text-shadow: 0px 2px 3px #606060;
 }
