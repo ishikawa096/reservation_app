@@ -17,7 +17,7 @@
           <td><%= image_tag room.image, class: "my_rooms_image" %></td>
           <td><%= link_to "#{room.name}", room %></td>
           <td><%= room.introduction %></td>
-          <td>￥<%= room.rate %> /日</td>
+          <td><%= room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</td>
           <td><%= room.created_at.to_s(:datetime_jp) %></td>
           <td>変更・削除ボタン</td>
         </tr>

@@ -1,4 +1,3 @@
-
 <h3>あなたの予約一覧</h3>
 
 <table class="table">
@@ -21,7 +20,7 @@
           <td><%= image_tag reserv.room.image, class: "my_rooms_image" %></td>
           <td><%= link_to "#{reserv.room.name}", room_url(reserv.room_id) %></td>
           <td><%= reserv.id %></td>
-          <td><%= reserv.charge %></td>
+          <td><%= reserv.charge.to_s(:currency, unit: "￥", format: "%u%n") %></td>
           <td><%= reserv.user_id %></td>
           <td><%= reserv.start_at %></td>
           <td><%= reserv.end_at %></td>

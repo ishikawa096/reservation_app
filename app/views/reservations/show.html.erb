@@ -2,10 +2,10 @@
 <table class="table">
     <tr>
       <th>予約したルーム名</th>
-      <td><%= @reservation.room_name %></td>
+      <td><%= @room.name %></td>
     </tr>
     <tr>
       <th>価格</th>
-      <td><%= @reservation.charge %></td>
+      <td><%= @reservation.charge.to_s(:currency, unit: "￥", format: "%u%n") %></td>
     </tr>
   </table>

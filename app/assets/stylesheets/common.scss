@@ -101,9 +101,21 @@ footer {
 @media screen and (max-width: 768px) {
   .sidebar {
   min-height: 0;
-}
+  }
 }
 
+.form-container {
+    box-shadow: 2px 0px 5px #e0e0e0;
+    padding: 20px 30px 40px 30px;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+
+}
+.form-inner {
+  display: inline-block;
+  text-align: center;
+}
 
 @media screen and (max-width: 1080px) {
 }

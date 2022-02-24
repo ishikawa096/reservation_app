@@ -25,16 +25,15 @@
       </tr>
       <tr>
         <th><%= f.label :charge ,"合計金額" %></th>
-        <td><%= @charge %></td>
+        <td><%= @charge.to_s(:currency, unit: "￥", format: "%u%n") %></td>
       </tr>
     </table>
-    <%= f.hidden_field :room_name, value: params[:room_name]  %>
     <%= f.hidden_field :charge, value: @charge %>
     <%= f.hidden_field :start_at, value: params[:start_at] %>
     <%= f.hidden_field :end_at, value: params[:end_at] %>
     <%= f.hidden_field :num_people, value: params[:num_people] %>
     <%= f.hidden_field :room_id, value: params[:room_id] %>
-    <%= f.hidden_field :user_id, value: params[:user_id] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
     <div>
       <%= f.submit "予約" ,class:"btn btn-primary" %>

@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @reservations = current_user.reservations
     @rooms = Room.where(params[Reservation.ids])
@@ -30,18 +32,19 @@ class ReservationsController < ApplicationController
   def create
     @room = Room.find(params[:reservation][:room_id])
     @reservation = Reservation.new(reservation_params)
-      if @reservation.save
-        flash[:notice] = "新規予約が完了しました"
-        redirect_to :reservations
-      else
-        @reservation = Reservation.new(reservation_params)
-        render "top/index"
-        flash.now[:alert] = "予約できませんでした"
+    if @reservation.save
+      flash[:notice] = "新規予約が完了しました"
+      redirect_to :reservations
+    else
+      @reservation = Reservation.new(reservation_params)
+      render "top/index"
+      flash.now[:alert] = "予約できませんでした"
     end
   end
 
   def show
     @reservation = Reservation.find(params[:id])
+    @room = @reservation.room
   end
 
   def edit
@@ -56,6 +59,7 @@ class ReservationsController < ApplicationController
      private
 
   def reservation_params
-    params.require(:reservation).permit(:room_name, :start_at, :end_at, :charge, :num_people, :room_id, :user_id, :room_image)
+    params.require(:reservation).permit(:start_at, :end_at, :charge, :num_people, :room_id, :user_id, :room_image)
   end
+
 end

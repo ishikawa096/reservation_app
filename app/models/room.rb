@@ -4,8 +4,8 @@ class Room < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true, length: { maximum: 25 }
-  validates :address, presence: true
-  validates :rate, presence: true, numericality: { only_integer: true }
+  validates :address, presence: true, length: { maximum: 25 }
+  validates :rate, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :introduction, presence: true
 
   def self.search(area,keyword)
