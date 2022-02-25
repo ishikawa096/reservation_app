@@ -1,4 +1,4 @@
- body {
+body {
   margin: 0px;
   padding: 0px;
   font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -8,24 +8,29 @@
   padding-bottom: 80px;
   box-sizing: border-box;
   min-height: 100vh;
- }
- main {
-     position: relative;
- }
+}
+main {
+  position: relative;
+}
 
- p, .alert {
-   padding: 0px;
-   margin: 0px;
- }
+p, .alert {
+  padding: 0px;
+  margin: 0px !important;
+}
 
- a,ul,li {
-   text-decoration: none;
- }
+a, ul, li {
+  text-decoration: none;
+}
 
- label {
-   display: block;
- }
+label {
+  display: block;
+  margin-bottom: 0px !important;
+  font-weight: 900;
+}
 
+.btn-primary {
+  background-color: #4a90e2 !important;
+}
 
  .header, .footer{
   background-color: #131317;
@@ -96,25 +101,79 @@ footer {
 
 .sidebar {
   min-height: 100vh;
+  display: table-cell;
+  border-right: 2px solid #e0e0e0;
+  padding: 30px 0px;
+  align-items: end;
+}
+
+.sidebar-item {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border: none;
+  padding: 15px 0px;
+}
+.current-item {
+  padding: 10px 10px 10px 0px;
+  border-right: 3px solid #4a90e2;
+  color: #4a90e2;
+}
+
+.not-current-item {
+  padding: 10px 13px 10px 0px;
+  color: #000;
+}
+
+.sidebar-item a:hover {
+  text-decoration: none;
+  color: #4a90e2;
 }
 
 @media screen and (max-width: 768px) {
   .sidebar {
   min-height: 0;
   }
+  .sidebar-item {
+  margin-right: 20px;
+  margin-bottom: 0px;
+  }
+  .current-item {
+  padding: 10px 10px 10px 10px;
+  border-right: 0px;
+  border-bottom: 3px solid #4a90e2;
+  }
+  .not-current-item {
+  padding: 10px 10px 13px 10px;
+  }
 }
 
 .form-container {
-    box-shadow: 2px 0px 5px #e0e0e0;
-    padding: 20px 30px 40px 30px;
-    max-width: 600px;
-    margin: 30px auto;
-    text-align: center;
-
+  box-shadow: 2px 0px 5px #e0e0e0;
+  padding: 20px 30px 40px 30px;
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+  background-color: #fff;
 }
 .form-inner {
   display: inline-block;
   text-align: center;
+  min-width: 300px;
+}
+
+.profile-container {
+  border: 1px solid #eeeeee;
+  background-color: #fff;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 900px;
+}
+.profile-inner {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
 }
 
 @media screen and (max-width: 1080px) {

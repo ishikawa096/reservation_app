@@ -4,65 +4,70 @@
     <title>Pote Share</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 header">
-      <div class="header-left">
-  <div class="header-logo my-0 mr-md-auto"><%= link_to image_tag("logo.png", class:"logo-img"), :root %></div>
-      <div class="search-form">
-  <%= form_with url: search_path, method: :get, class: "d-flex search-form", local: true do |f| %>
-    <%= f.text_field :area, value: @area, class: 'form-control me-2', placeholder: "エリア" %>
-    <%= f.text_field :keyword, value: @keyword, class: 'form-control me-2', placeholder: "キーワード"%>
-    <%= f.submit "検索", class: 'btn d-none' %>
-  <% end %>
-      </div>
-      </div>
-      <div class="header-right">
-      <% if user_signed_in? %>
-       <div class='header-name'>
-        <%= current_user.name %>
+      <div class="d-flex flex-row align-items-center justify-content-between p-3 px-md-4 header">
+        <div class="header-left">
+          <div class="header-logo my-0 mr-md-auto">
+            <%= link_to image_tag("logo.png", class:"logo-img"), :root %>
+          </div>
+          <div class="search-form">
+            <%= form_with url: search_path, method: :get, class: "d-flex search-form", local: true do |f| %>
+              <%= f.text_field :area, value: @area, class: 'form-control me-2', placeholder: "エリア" %>
+              <%= f.text_field :keyword, value: @keyword, class: 'form-control me-2', placeholder: "キーワード"%>
+              <%= f.submit "検索", class: 'btn d-none' %>
+            <% end %>
+          </div>
         </div>
-        <div class='header-icon'>
-        <%= image_tag current_user.icon, class: 'user-icon'%></div>
-        <div class="card nav-card d-none position-absolute" style="width: 15rem;">
-          <nav>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %></li>
-    <li class="list-group-item"><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %></li>
-    <li class="list-group-item"><%= link_to "登録済みルーム一覧", my_rooms_rooms_path, class: "p-2 text-dark" %></li>
-    <li class="list-group-item"><%= link_to "設定", account_users_path, class: "p-2 text-dark" %></li>
-  </ul>
-  <div class="card-header"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %></div>
-  </nav>
-</div>
-  <% else %>
-<%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-          <%= link_to "登録する", new_user_registration_path ,class: "btn btn-secondary" %>
-  <% end %>
-  </div>
-</div>
+        <div class="header-right">
+          <% if user_signed_in? %>
+            <div class='header-name'>
+              <%= current_user.name %>
+            </div>
+            <div class='header-icon'>
+              <%= image_tag current_user.icon, class: 'user-icon'%>
+            </div>
+            <div class="card nav-card d-none position-absolute" style="width: 15rem;">
+              <nav>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><%= link_to "ルーム登録", :new_room, class: "p-2 text-dark" %></li>
+                  <li class="list-group-item"><%= link_to "予約済みルーム一覧", :reservations, class: "p-2 text-dark" %></li>
+                  <li class="list-group-item"><%= link_to "登録済みルーム一覧", my_rooms_rooms_path, class: "p-2 text-dark" %></li>
+                  <li class="list-group-item"><%= link_to "設定", account_users_path, class: "p-2 text-dark" %></li>
+                </ul>
+                <div class="card-header">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %>
+                </div>
+              </nav>
+            </div>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+            <%= link_to "登録する", new_user_registration_path ,class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      </div>
     </header>
-<% if notice.present? %>
-    <p class="notice"><%= notice %></p>
+
+    <% if notice.present? %>
+      <p class="notice"><%= notice %></p>
     <% end %>
     <% if alert.present? %>
-    <p class="alert"><%= alert %></p>
-        <% end %>
-        <main>
-      <%= yield %>
-      </main>
+      <p class="alert"><%= alert %></p>
+    <% end %>
 
-    <footer class="align-items-center footer">
-    <div class="align-items-center footer">
-      <p>©</p>
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer class="d-flex align-items-center footer">
+      <div class="text-center w-100">
+        <p>©</p>
       </div>
     </footer>
   </body>

@@ -1,14 +1,11 @@
-<div class="container-fluid user">
+<div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-12 col-md-2 d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <% @side_menu.zip(@side_link) do |sm, sl| %>
-            <li class="nav-item">
-              <span data-feather="home"></span>
-              <%= link_to "#{sm}", "/users/#{sl}" %>  <span class="sr-only">(現在位置)</span>
+    <nav class="col-sm-12 col-md-2 d-md-block sidebar">
+        <ul class="nav flex-lg-column flex-md-row text-right">
+          <% @sidebar.zip(@sidebar_url,@current_item) do |s,su,c| %>
+            <li class="sidebar-item">
+              <%= link_to "#{s}", "/users/#{su}", class: "#{c}" %>
             </li>
           <% end %>
         </ul>
-      </div>
     </nav>

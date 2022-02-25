@@ -55,19 +55,24 @@ class UsersController < ApplicationController
 
   def account
     @user = User.find(current_user.id)
-    @side_menu = ["アカウント", "プロフィール"]
-    @side_link = ["account", "profile"]
+    sidebar_items
+    @current_item = ["current-item", "not-current-item"]
   end
 
   def profile
     @user = User.find(current_user.id)
-    @side_menu = ["アカウント", "プロフィール"]
-    @side_link = ["account", "profile"]
+    sidebar_items
+    @current_item = ["not-current-item", "current-item"]
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :introduction, :icon)
+  end
+
+  def sidebar_items
+    @sidebar = ["アカウント", "プロフィール"]
+    @sidebar_url = ["account", "profile"]
   end
 end
