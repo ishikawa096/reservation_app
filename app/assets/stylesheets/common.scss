@@ -189,6 +189,63 @@ footer {
   border-bottom: 1px solid #f0f0f0;
   align-items: center;
 }
+.profile-error {
+  padding: 0px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.table-container {
+  min-width: 900px;
+  margin: 0 50px;
+}
+
+.list-table {
+  text-align: center;
+}
+
+.list-table tbody tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+.list-table tbody tr:nth-of-type(even) {
+  background-color: #fafafa;
+}
+
+.list-table tbody tr:last-of-type {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.list-table th {
+  vertical-align: middle !important;
+  font-size: 0.9em;
+}
+
+.list-table td {
+  vertical-align: middle !important;
+  font-size: 0.8em;
+}
+
+.list-room-image {
+  max-width: 230px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.list-room-name {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #4a90e2;
+}
+.data_empty {
+  background-color: #f0f0f0;
+  height: 120px;
+  margin: 20px;
+  padding: 50px;
+}
 
 @media screen and (max-width: 1080px) {
 }

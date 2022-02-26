@@ -1,5 +1,7 @@
 <%= render "shared/sidebar" %>
         <h5>ルーム情報登録</h5>
+      </div>
+      <div class ="profile-error">
         <%= render "shared/error", obj:@room %>
       </div>
       <%= form_with model: @room do |f| %>
