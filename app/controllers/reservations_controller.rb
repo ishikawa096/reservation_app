@@ -34,11 +34,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       flash[:notice] = "新規予約が完了しました"
-      redirect_to :reservations
+      redirect_to action: :show, id: @reservation.id
     else
       @reservation = Reservation.new(reservation_params)
-      render "top/index"
       flash.now[:alert] = "予約できませんでした"
+      render "top/index"
     end
   end
 

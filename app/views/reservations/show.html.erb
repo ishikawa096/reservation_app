@@ -1,11 +1,23 @@
-<h3>予約詳細</h3>
-<table class="table">
-    <tr>
-      <th>予約したルーム名</th>
-      <td><%= @room.name %></td>
-    </tr>
-    <tr>
-      <th>価格</th>
-      <td><%= @reservation.charge.to_s(:currency, unit: "￥", format: "%u%n") %></td>
-    </tr>
-  </table>
+<div class="bg-light vh-100 p-5">
+<div class="profile-container mt-0">
+   <div class="profile-inner">
+      <label class="form-label w-25">予約した部屋</label>
+      <p class="w-75"><%= @reservation.room.name %>
+    </div>
+
+    <div class ="profile-inner">
+      <label class="form-label w-25">開始日</label>
+      <p class="w-75"><%= @reservation.start_at %>
+        </div>
+
+    <div class ="profile-inner">
+      <label class="form-label w-25">終了日</label>
+      <p class="w-75"><%= @reservation.end_at %>
+    </div>
+
+    <div class ="profile-inner border-0">
+      <label class="form-label w-25">価格</label>
+      <p class="w-75"><%= @reservation.charge.to_s(:currency, unit: "￥", format: "%u%n") %>
+  </div>
+</div>
+</div>
