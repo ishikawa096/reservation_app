@@ -1,6 +1,6 @@
 <div class="room-show-container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-lg-8 col-sm-12">
         <%= image_tag @room.image, alt: 'ルーム画像', class: 'room-show-img' %>
       <div class="room-show-detail">
         <div class="room-show-dateil-icon">
@@ -20,39 +20,50 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-lg-4 col-sm-12">
      <div class="room-show-nav">
       <% if user_signed_in? %>
-        <h3><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h3>
+        <h5><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h5>
         <%= form_with url: new_reservation_path, method: "get" do |f| %>
-        <%= f.label :start_at, "開始日" %>
-          <%= f.date_field :start_at, class:"form" %>
-          <%= f.label :end_at, "終了日" %>
-          <%= f.date_field :end_at, class:"form" %>
-          <%= f.label :num_people, "人数" %>
-          <%= f.number_field :num_people, class:"form" %>
+          <div class="form-group">
+            <%= f.label :start_at, "開始日", class: "label-small" %>
+            <%= f.date_field :start_at, class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_at, "終了日", class: "label-small" %>
+            <%= f.date_field :end_at, class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :num_people, "人数", class: "label-small"  %>
+            <%= f.number_field :num_people, class:"form-control" %>
+          </div>
           <%= f.hidden_field :room_rate, value: @room.rate %>
           <%= f.hidden_field :room_name, value: @room.name %>
           <%= f.hidden_field :room_id, value: @room.id %>
-        <div>
-          <%= f.submit "予約確認に進む", class:"btn btn-primary" %>
-        </div>
+          <div class="form-group">
+            <%= f.submit "予約確認に進む", class:"btn btn-primary btn-block" %>
+          </div>
         <% end %>
       <% else %>
-      <%= link_to "ログインして予約", new_user_session_path, class: "font-weight-bold" %>
-      <h3 class="text-muted"><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h3>
-      <%= form_with url: new_reservation_path, method: "get" do |f| %>
-      <%= f.label :start_at, "開始日", class: "text-muted" %>
-        <%= f.date_field :start_at, class:"form", disabled: true %>
-        <%= f.label :end_at, "終了日", class: "text-muted" %>
-        <%= f.date_field :end_at, class:"form", disabled: true %>
-        <%= f.label :num_people, "人数", class: "text-muted" %>
-        <%= f.number_field :num_people, class:"form", disabled: true %>
-      <div>
-        <%= f.submit "予約確認に進む", class:"btn btn-primary", disabled: true %>
-      </div>
+        <%= link_to "ログインして予約", new_user_session_path, class: "font-weight-bold" %>
+        <h3 class="text-muted"><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h3>
+        <%= form_with url: new_reservation_path, method: "get" do |f| %>
+          <div class="form-group">
+            <%= f.label :start_at, "開始日", class: "label-small text-muted" %>
+            <%= f.date_field :start_at, class:"form-control", disabled: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_at, "終了日", class: "label-small text-muted" %>
+            <%= f.date_field :end_at, class:"form-control", disabled: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :num_people, "人数", class: "label-small text-muted" %>
+            <%= f.number_field :num_people, class:"form-control", disabled: true %>
+          <div class="form-group">
+            <%= f.submit "予約確認に進む", class:"btn btn-primary btn-block", disabled: true %>
+          </div>
+        <% end %>
       <% end %>
-      <% end %>
-      </div>
     </div>
   </div>
+</div>

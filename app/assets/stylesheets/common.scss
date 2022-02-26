@@ -31,11 +31,18 @@ label {
   font-weight: 900;
 }
 
+.label-small {
+  display: block;
+  font-size: 0.9em;
+  padding-bottom: 8px;
+  letter-spacing: 3px;
+}
+
 .btn-primary {
   background-color: #4a90e2 !important;
 }
 
- .header, .footer{
+.header, .footer{
   background-color: #131317;
   width: 100%;
   color: #fff;

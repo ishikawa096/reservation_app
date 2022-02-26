@@ -35,22 +35,37 @@
 .room-show-detail {
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid #f0f0f0;
+  height: 120px;
+}
+.room-show-detail .room-show-dateil-icon {
+  padding: 20px;
 }
 .room-show-detail-profile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-around !important;
+}
+.room-show-name, .room-show-address {
+  font-size: 0.9em;
+  display: block;
+  height: 50%;
+  padding: 20px;
 }
 .room-show-name {
   font-weight: bold;
-  display: block;
-}
-.room-show-address {
-  display: block;
+  font-size: 1.1em;
 }
 .room-show-intro {
   display: block;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 .room-show-nav {
   padding: 20px;
   border: 1px solid #eaedef;
+}
+.room-show-nav h5 {
+  padding-bottom: 10px;
 }
