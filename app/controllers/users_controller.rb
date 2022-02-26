@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
 
   def index
-    @users = User.all
   end
 
   def new
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-        @user = current_user
+    @user = current_user
 
   end
 
@@ -30,37 +29,35 @@ class UsersController < ApplicationController
   end
 
   def update
-      @user = User.find(params[:id])
-      if @user.update(user_params)
-        if params[:profile_update]
-          flash[:notice] = "プロフィールを更新しました"
-          redirect_to profile_users_url
-        elsif
-          flash[:notice] = "ユーザー情報を更新しました"
-          redirect_to account_users_url
-        end
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      if params[:profile_update]
+        flash[:notice] = "プロフィールを更新しました"
+        redirect_to profile_users_url
       elsif
-        if params[:profile_update]
-          render "profile"
-          flash.now[:alert] = "プロフィールを更新できませんでした"
-        elsif
-          render "account"
-          flash.now[:alert] = "ユーザー情報を更新できませんでした"
-        end
+        flash[:notice] = "ユーザー情報を更新しました"
+        redirect_to account_users_url
       end
+    elsif
+      if params[:profile_update]
+        render "profile"
+        flash.now[:alert] = "プロフィールを更新できませんでした"
+      elsif
+        render "account"
+        flash.now[:alert] = "ユーザー情報を更新できませんでした"
+      end
+    end
   end
 
   def destroy
   end
 
   def account
-    @user = User.find(current_user.id)
     sidebar_items
     @current_item = ["current-item", "not-current-item"]
   end
 
   def profile
-    @user = User.find(current_user.id)
     sidebar_items
     @current_item = ["not-current-item", "current-item"]
   end
@@ -72,6 +69,7 @@ class UsersController < ApplicationController
   end
 
   def sidebar_items
+    @user = User.find(current_user.id)
     @sidebar = ["アカウント", "プロフィール"]
     @sidebar_url = ["account", "profile"]
   end

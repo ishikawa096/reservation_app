@@ -25,6 +25,9 @@ a, ul, li {
 label {
   display: block;
   margin-bottom: 0px !important;
+}
+
+.form-label {
   font-weight: 900;
 }
 
@@ -161,6 +164,17 @@ footer {
   min-width: 300px;
 }
 
+.form-btn {
+  min-width: 200px;
+}
+
+@media screen and (max-width: 767px) {
+  .form-btn {
+    display: block;
+    width: 100%;
+  }
+}
+
 .profile-container {
   border: 1px solid #eeeeee;
   background-color: #fff;
@@ -171,7 +185,7 @@ footer {
 .profile-inner {
   display: flex;
   flex-direction: row;
-  padding: 20px;
+  padding: 30px 20px;
   border-bottom: 1px solid #f0f0f0;
   align-items: center;
 }

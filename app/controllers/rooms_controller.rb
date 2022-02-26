@@ -7,6 +7,9 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @sidebar = ["基本情報"]
+    @sidebar_url = ["new"]
+    @current_item = ["current-item"]
   end
 
   def create

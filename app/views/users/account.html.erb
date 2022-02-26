@@ -1,21 +1,18 @@
 <%= render "shared/sidebar" %>
-<div class="col-md-10 ml-sm-auto col-lg-10 px-4 bg-light">
-  <div class ="profile-container">
-    <div class ="profile-inner">
-<h5>アカウント</h5>
-</div>
-<div class ="profile-inner">
-<label class="w-25">メールアドレス</label>
-<p class="w-75"><%= @user.email %></p>
-</div>
-<div class ="profile-inner">
-        <label class="w-25">パスワード</label>
+          <h5>アカウント</h5>
+        </div>
+        <div class ="profile-inner">
+          <label class="form-label w-25">メールアドレス</label>
+          <p class="w-75"><%= @user.email %></p>
+        </div>
+        <div class ="profile-inner">
+          <label class="form-label w-25">パスワード</label>
           <p class="w-75">**********</p>
-          </div>
-          <div class ="profile-inner border-0">
-  <%= link_to "編集", edit_user_registration_path, class: "btn btn-primary w-25" %>
-  </div>
-  </div>
+        </div>
+        <div class ="profile-inner border-0">
+          <%= link_to "編集", edit_user_registration_path, class: "btn btn-primary  form-btn" %>
+        </div>
+      </div>
     </div>
-      </div>
-      </div>
+  </div>
+</div>
