@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one_attached :icon
 
   validates :name, presence: true, length: { maximum: 25 }
+  validates :introduction, presence: true, length: { maximum: 200 }
   validates :email, presence: true, uniqueness: true
 
   before_create :default_icon

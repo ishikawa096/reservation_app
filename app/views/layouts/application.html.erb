@@ -8,6 +8,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/c7405aa04b.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -18,10 +19,12 @@
             <%= link_to image_tag("logo.png", class:"logo-img"), :root %>
           </div>
           <div class="search-form">
-            <%= form_with url: search_path, method: :get, class: "d-flex search-form", local: true do |f| %>
-              <%= f.text_field :area, value: @area, class: 'form-control me-2', placeholder: "エリア" %>
-              <%= f.text_field :keyword, value: @keyword, class: 'form-control me-2', placeholder: "キーワード"%>
+            <%= form_with url: search_path, method: :get, class: "d-flex search-form position-relative", local: true do |f| %>
+              <%= f.text_field :area, value: @area, class: 'form-control mr-2 pl-4', id: 'header-area-search', placeholder: "エリア" %>
+              <%= f.text_field :keyword, value: @keyword, class: 'form-control pl-4', id: 'header-word-search', placeholder: "キーワード"%>
               <%= f.submit "検索", class: 'btn d-none' %>
+              <span class="search-area-icon"></span>
+              <span class="search-word-icon"></span>
             <% end %>
           </div>
         </div>
@@ -41,13 +44,13 @@
                   <li class="list-group-item"><%= link_to "登録済みルーム一覧", my_rooms_rooms_path, class: "p-2 text-dark" %></li>
                   <li class="list-group-item"><%= link_to "設定", account_users_path, class: "p-2 text-dark" %></li>
                 </ul>
-                <div class="card-header">
+                <div class="card-footer">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "p-2 text-dark" %>
                 </div>
               </nav>
             </div>
           <% else %>
-            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary mr-2" %>
             <%= link_to "登録する", new_user_registration_path ,class: "btn btn-secondary" %>
           <% end %>
         </div>

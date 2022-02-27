@@ -3,9 +3,9 @@
 
     <nav class="col-sm-12 col-md-2 d-md-block sidebar">
         <ul class="nav flex-lg-column flex-md-row text-right">
-          <% @sidebar.zip(@sidebar_url,@current_item) do |s,su,c| %>
+          <% nav.zip(url, current) do |n,u,c| %>
             <li class="sidebar-item">
-              <%= link_to "#{s}", "#{su}", class: "#{c}" %>
+              <%= link_to "#{n}", "#{u}", class: "#{c}" %>
             </li>
           <% end %>
         </ul>

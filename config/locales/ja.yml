@@ -10,13 +10,15 @@ ja:
         email: メールアドレス
         age: 年齢
         introduction: 自己紹介
+        icon: ユーザー画像
       room:
         name: 部屋名
         address: 住所
         rate: 料金
-        introduction: 紹介
+        introduction: ルーム紹介
+        image: ルーム画像
       reservation:
         start_at: 開始日
         end_at: 終了日
         num_people: 人数
-        charge: 料金
+        charge: 合計金額

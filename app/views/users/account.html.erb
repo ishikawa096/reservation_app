@@ -1,4 +1,4 @@
-<%= render "shared/sidebar" %>
+<%= render partial: "shared/sidebar", locals: { nav: ["アカウント", "プロフィール"], url: ["account", "profile"], current: ["current-item", "not-current-item"] } %>
           <h5>アカウント</h5>
         </div>
         <div class ="profile-inner">

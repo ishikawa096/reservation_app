@@ -23,7 +23,7 @@
     <div class="col-lg-4 col-sm-12">
      <div class="room-show-nav">
       <% if user_signed_in? %>
-        <h5><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h5>
+        <h5><i class="fa-solid fa-yen-sign"></i> <%= @room.rate.to_s(:delimited) %> /日</h5>
         <%= form_with url: new_reservation_path, method: "get" do |f| %>
           <div class="form-group">
             <%= f.label :start_at, "開始日", class: "label-small" %>
@@ -46,7 +46,7 @@
         <% end %>
       <% else %>
         <%= link_to "ログインして予約", new_user_session_path, class: "font-weight-bold" %>
-        <h3 class="text-muted"><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h3>
+        <h3 class="text-muted"><i class="fa-solid fa-yen-sign"></i><%= @room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</h3>
         <%= form_with url: new_reservation_path, method: "get" do |f| %>
           <div class="form-group">
             <%= f.label :start_at, "開始日", class: "label-small text-muted" %>

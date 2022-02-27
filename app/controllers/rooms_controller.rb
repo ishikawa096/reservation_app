@@ -7,7 +7,6 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
-    sidebar_items
   end
 
   def create
@@ -15,9 +14,8 @@ class RoomsController < ApplicationController
 
      if @room.save
       flash[:notice] = "ルームを新規登録しました"
-      redirect_to :root
+      redirect_to action: :show, id: @room.id
     else
-      sidebar_items
       render "new"
     end
   end
@@ -52,11 +50,5 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:name, :introduction, :rate, :address, :user_id, :image)
-  end
-
-  def sidebar_items
-    @sidebar = ["基本情報"]
-    @sidebar_url = ["new"]
-    @current_item = ["current-item"]
   end
 end

@@ -27,6 +27,17 @@ label {
   margin-bottom: 0px !important;
 }
 
+.notice, .alert {
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5em;
+  background-color: #aacfdf;
+}
+
+.alert {
+  background-color: #eaaaca;
+}
 .form-label {
   font-weight: 900;
 }
@@ -84,6 +95,23 @@ footer {
   }
 }
 
+.search-area-icon::before, .search-word-icon::before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  content: "\f3c5";
+  font-weight: 900;
+  font-size: 1.2em;
+  color: #303030;
+  top: 5px;
+  left: 5px;
+}
+
+.search-word-icon::before {
+  content: "\f002";
+  right: 192px;
+  left: auto;
+}
+
 .header-right {
   display: flex;
   align-items: center;
@@ -108,7 +136,19 @@ footer {
   top: 80px;
   right: 10px;
 }
-
+.require::after {
+  content: "必須";
+  background-color: #fc7777;
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: bold;
+  padding: 4px;
+  margin: 0px 5px;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 5px;
+}
 .sidebar {
   min-height: 100vh;
   display: table-cell;
@@ -202,6 +242,22 @@ footer {
 
 .field_with_errors {
   display: contents;
+  background-color: #fc7777;
+}
+
+.field_with_errors .form-control, .field_with_errors .file-form-control {
+  border: 2px solid #fc7777;
+}
+
+.error-field {
+  padding: 0 30px;
+  color: #fc7777;
+}
+
+.error-field ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .table-container {

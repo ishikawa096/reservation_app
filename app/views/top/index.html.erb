@@ -18,25 +18,27 @@
 </section>
 
 <section class="recommend">
-<div class="container col-12 recommend-area-container">
-<h3 class="">おすすめのエリア</h3>
-  <div class="row justify-content-center">
-  <%= link_to "/search?area=東京", class: "card text-white border-0 col-lg-2 col-md-5 recommend-area area-1 m-2" do %>
-    <h2 class="area-title">東京</h2>
+<div class="recommend-title">
+<h4 class="font-weight-bold">おすすめのエリア</h4>
+</div>
+<div class="recommend-container">
+  <div class="recommend-area-container">
+  <%= link_to "/search?area=東京", class: "card text-white border-0 recommend-area area-1" do %>
+    <h2 class="area-label">東京</h2>
   <% end %>
 
-  <%= link_to "/search?area=大阪", class: "card text-white border-0 col-lg-2 col-md-5 recommend-area area-2 m-2" do %>
-    <h2 class="area-title">大阪</h2>
+  <%= link_to "/search?area=大阪", class: "card text-white border-0 recommend-area area-2" do %>
+    <h2 class="area-label">大阪</h2>
+  <% end %>
+  </div>
+  <div class="recommend-area-container">
+  <%= link_to "/search?area=京都", class: "card text-white border-0 recommend-area area-3" do %>
+    <h2 class="area-label">京都</h2>
   <% end %>
 
-  <%= link_to "/search?area=京都", class: "card text-white border-0 col-lg-2 col-md-5 recommend-area area-3 m-2" do %>
-    <h2 class="area-title">京都</h2>
+  <%= link_to "/search?area=札幌", class: "card text-white border-0 recommend-area area-4" do %>
+    <h2 class="area-label">札幌</h2>
   <% end %>
-
-  <%= link_to "/search?area=札幌", class: "card text-white border-0 col-lg-2 col-md-5 recommend-area area-4 m-2" do %>
-    <h2 class="area-title">札幌</h2>
-  <% end %>
-
 </div>
 
 </div>
