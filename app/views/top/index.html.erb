@@ -1,45 +1,27 @@
 <section class="firstview">
-
-<div class="container">
-  <div class="row">
-<div class="card col-sm-7 col-lg-6 top-content">
-  <div class="card-body">
-    <h3 class="card-title">Potepan Shareでまだ体験したことのない旅をしよう</h3>
-    <div class="top-search">
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :area, value: @area, class: 'form-control me-2 top-form', placeholder: "東京" %>
-    <%= f.submit "検索", class: 'btn btn-primary btn-block top-form-btn' %>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="card col-sm-7 col-lg-6 top-content">
+        <div class="card-body">
+          <h3 class="card-title">Potepan Shareでまだ体験したことのない旅をしよう</h3>
+          <div class="top-search">
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :area, value: @area, class: 'form-control me-2 top-form', placeholder: "東京" %>
+              <%= f.submit "検索", class: 'btn btn-primary btn-block top-form-btn' %>
+            <% end %>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
 </section>
 
 <section class="recommend">
-<div class="recommend-title">
-<h4 class="font-weight-bold">おすすめのエリア</h4>
-</div>
-<div class="recommend-container">
-  <div class="recommend-area-container">
-  <%= link_to "/search?area=東京", class: "card text-white border-0 recommend-area area-1" do %>
-    <h2 class="area-label">東京</h2>
-  <% end %>
-
-  <%= link_to "/search?area=大阪", class: "card text-white border-0 recommend-area area-2" do %>
-    <h2 class="area-label">大阪</h2>
-  <% end %>
+  <div class="recommend-title">
+    <h4 class="font-weight-bold">おすすめのエリア</h4>
   </div>
   <div class="recommend-area-container">
-  <%= link_to "/search?area=京都", class: "card text-white border-0 recommend-area area-3" do %>
-    <h2 class="area-label">京都</h2>
-  <% end %>
-
-  <%= link_to "/search?area=札幌", class: "card text-white border-0 recommend-area area-4" do %>
-    <h2 class="area-label">札幌</h2>
-  <% end %>
-</div>
-
-</div>
+    <%= render partial: "shared/top_recommend", locals: { area: ["東京", "大阪", "京都", "札幌"], num: ["1", "2", "3", "4"] } %>
+  </div>
+  </div>
 </section>

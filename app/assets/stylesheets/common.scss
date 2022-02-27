@@ -13,7 +13,7 @@ main {
   position: relative;
 }
 
-p, .alert {
+p {
   padding: 0px;
   margin: 0px !important;
 }
@@ -38,6 +38,7 @@ label {
 .alert {
   background-color: #eaaaca;
 }
+
 .form-label {
   font-weight: 900;
 }

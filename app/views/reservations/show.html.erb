@@ -2,22 +2,22 @@
   <div class="profile-container mt-0">
     <div class="profile-inner">
       <label class="form-label w-25">予約した部屋</label>
-      <p class="w-75"><%= @reservation.room.name %>
+      <p class="w-75"><%= @reservation.room.name %></p>
     </div>
 
     <div class ="profile-inner">
       <label class="form-label w-25">開始日</label>
-      <p class="w-75"><%= @reservation.start_at %>
+      <p class="w-75"><%= @reservation.start_at %></p>
     </div>
 
     <div class ="profile-inner">
       <label class="form-label w-25">終了日</label>
-      <p class="w-75"><%= @reservation.end_at %>
+      <p class="w-75"><%= @reservation.end_at %></p>
     </div>
 
     <div class ="profile-inner border-0">
       <label class="form-label w-25">価格</label>
-      <p class="w-75"><%= @reservation.charge.to_s(:currency, unit: "￥", format: "%u%n") %>
+      <p class="w-75"><%= @reservation.charge.to_s(:currency, unit: "￥", format: "%u%n") %></p>
     </div>
   </div>
 </div>

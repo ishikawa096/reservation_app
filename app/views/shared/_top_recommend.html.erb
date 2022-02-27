@@ -1,0 +1,5 @@
+<% area.zip(num) do |area,num| %>
+  <%= link_to "/search?area=#{area}", class: "card text-white border-0 recommend-area area-#{num}" do %>
+    <h2 class="area-label"><%= "#{area}" %></h2>
+  <% end %>
+<% end %>
