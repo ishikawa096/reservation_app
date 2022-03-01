@@ -1,13 +1,11 @@
 <div class="bg-light p-5">
-  <div class="profile-container mt-0">
-    <div class ="profile-inner justify-content-center">
-      <%= image_tag @user.icon, class: 'user-icon' %>
-    </div>
-    <div class="profile-inner justify-content-center">
+  <div class="contents-container mt-0">
+    <%= render "shared/content_icon", user: @user %>
+    <div class="content-inner">
       <label class="form-label w-25">ユーザー名</label>
       <p class="w-75"><%= @user.name %></p>
     </div>
-    <div class="profile-inner border-0">
+    <div class="content-inner">
       <label class="form-label w-25">自己紹介</label>
       <p class="w-75"><%= @user.introduction %></p>
     </div>
@@ -15,7 +13,7 @@
 
   <div class="room-index-container">
     <div class="row">
-      <h3 class="col-12">このユーザーが登録したルーム： <%= @user.rooms.count %>件</h3>
+      <h4 class="col-12 p-0">このユーザーが登録したルーム： <%= @user.rooms.count %>件</h4>
       <% @user.rooms.each do |room| %>
         <%= render "shared/rooms_index_content", room: room %>
       <% end %>

@@ -2,7 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .room-index-container {
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0px;
+  padding: 0 40px;
+}
+
+.room-index-container .row {
+  justify-content: space-between;
+}
+
+.room-index-container .row::after {
+  display: block;
+  content:"";
+  max-width: 320px;
+  flex: 0 0 41.6666666667%;
+  margin: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .index-room-img {
@@ -13,8 +29,23 @@
 }
 
 .room-index-card {
-  max-height: 300px;
+  max-width: 320px !important;
   overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .room-index-card {
+    max-width: none !important;
+  }
+}
+
+.room-index-card-body h5 a {
+  color: #909080;
+  font-weight: 700;
+}
+
+.room-index-card-body h5 a:hover {
+  text-decoration: none;
 }
 
 .index-rate {
@@ -26,6 +57,7 @@
 .room-show-container {
   padding: 30px;
 }
+
 .room-show-img {
   display: block;
   max-width: 100%;
@@ -37,35 +69,39 @@
   flex-direction: row;
   border-bottom: 1px solid #f0f0f0;
   height: 120px;
-}
-.room-show-detail .room-show-dateil-icon {
   padding: 20px;
 }
+
 .room-show-detail-profile {
   display: flex;
   flex-direction: column;
   justify-content: space-around !important;
 }
+
 .room-show-name, .room-show-address {
   font-size: 0.9em;
   display: block;
   height: 50%;
-  padding: 20px;
+  padding-left: 20px;
 }
+
 .room-show-name {
   font-weight: bold;
   font-size: 1.1em;
 }
+
 .room-show-intro {
   display: block;
   border-bottom: 1px solid #f0f0f0;
   padding: 20px;
   margin-bottom: 20px;
 }
+
 .room-show-nav {
   padding: 20px;
   border: 1px solid #eaedef;
 }
+
 .room-show-nav h5 {
   padding-bottom: 10px;
 }

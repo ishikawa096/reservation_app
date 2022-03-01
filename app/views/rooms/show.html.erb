@@ -4,9 +4,9 @@
       <%= image_tag @room.image, alt: 'ルーム画像', class: 'room-show-img' %>
       <div class="room-show-detail">
         <div class="room-show-dateil-icon">
-        <%= link_to user_path(@user), class: 'link' do %>
-          <%= image_tag @user.icon, alt: 'ユーザーアイコン', class: 'user-icon'%>
-        <% end %>
+          <%= link_to user_path(@user), class: 'link' do %>
+            <%= image_tag @user.icon, alt: 'ユーザーアイコン', class: 'user-icon'%>
+          <% end %>
         </div>
         <div class="room-show-dateil-profile">
           <div class="room-show-name">

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pote Share</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%= csrf_meta_tags %>
@@ -9,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/c7405aa04b.js" crossorigin="anonymous"></script>
+    <title>PoteShare</title>
   </head>
 
   <body>
@@ -19,9 +19,9 @@
             <%= link_to image_tag("logo.png", class:"logo-img"), :root %>
           </div>
           <div class="search-form">
-            <%= form_with url: search_path, method: :get, class: "d-flex search-form position-relative", local: true do |f| %>
-              <%= f.text_field :area, value: @area, class: 'form-control mr-2 pl-4', id: 'header-area-search', placeholder: "エリア" %>
-              <%= f.text_field :keyword, value: @keyword, class: 'form-control pl-4', id: 'header-word-search', placeholder: "キーワード"%>
+            <%= form_with url: search_path, method: :get, class: "d-flex position-relative", local: true do |f| %>
+              <%= f.text_field :area, value: @area, class: 'form-control header-search-field mr-1', placeholder: "エリア" %>
+              <%= f.text_field :keyword, value: @keyword, class: 'form-control header-search-field', placeholder: "キーワード"%>
               <%= f.submit "検索", class: 'btn d-none' %>
               <span class="search-area-icon"></span>
               <span class="search-word-icon"></span>
@@ -31,7 +31,7 @@
         <div class="header-right">
           <% if user_signed_in? %>
             <div class='header-name'>
-              <%= current_user.name %>
+              <%= current_user.name.truncate(20) %>
             </div>
             <div class='header-icon'>
               <%= image_tag current_user.icon, class: 'user-icon'%>
@@ -70,7 +70,7 @@
 
     <footer class="d-flex align-items-center footer">
       <div class="text-center w-100">
-        <p>©</p>
+        <p>© 2020 POTEPAN.INC.</p>
       </div>
     </footer>
   </body>

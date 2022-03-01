@@ -1,14 +1,19 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-size: 14px;
   font-weight: 500;
   position: relative;
-  padding-bottom: 80px;
+  padding-bottom: 170px;
   box-sizing: border-box;
   min-height: 100vh;
 }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif !important;
+  line-height: 18px;
+}
+
 main {
   position: relative;
 }
@@ -37,6 +42,7 @@ label {
 
 .alert {
   background-color: #eaaaca;
+  padding: 0px !important;
 }
 
 .form-label {
@@ -58,8 +64,8 @@ label {
   background-color: #131317;
   width: 100%;
   color: #fff;
-  height: 80px;
   z-index: 99;
+  height: 80px;
 }
 
 header {
@@ -70,7 +76,7 @@ header {
 footer {
   position: absolute;
   bottom: 0;
-  height: 170px;
+  height: 170px !important;
   text-align: center;
 }
 
@@ -89,6 +95,10 @@ footer {
   align-items: center;
   padding: auto;
 }
+.header-search-field {
+  padding-left: 28px !important;
+  width: 170px !important;
+}
 
 @media screen and (max-width: 1080px) {
   .search-form {
@@ -104,12 +114,12 @@ footer {
   font-size: 1.2em;
   color: #303030;
   top: 5px;
-  left: 5px;
+  left: 7px;
 }
 
 .search-word-icon::before {
   content: "\f002";
-  right: 192px;
+  right: 147px;
   left: auto;
 }
 
@@ -131,12 +141,23 @@ footer {
   margin-right: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .header-name {
+    display: none;
+  }
+}
+
 .nav-card {
   float: right;
   z-index: 1000;
   top: 80px;
   right: 10px;
 }
+
+.nav-card .list-group-item {
+  border: none;
+}
+
 .require::after {
   content: "必須";
   background-color: #fc7777;
@@ -150,6 +171,7 @@ footer {
   text-align: center;
   border-radius: 5px;
 }
+
 .sidebar {
   min-height: 100vh;
   display: table-cell;
@@ -206,6 +228,7 @@ footer {
   text-align: center;
   background-color: #fff;
 }
+
 .form-inner {
   display: inline-block;
   text-align: center;
@@ -223,20 +246,30 @@ footer {
   }
 }
 
-.profile-container {
+.contents-container {
   border: 1px solid #eeeeee;
   background-color: #fff;
   padding: 20px;
   margin: 30px auto;
   max-width: 900px;
 }
-.profile-inner {
+
+.contents-container :last-child {
+  border-bottom: none;
+}
+
+.content-inner {
   display: flex;
   flex-direction: row;
   padding: 30px 20px;
   border-bottom: 1px solid #f0f0f0;
   align-items: center;
 }
+
+.form-control {
+  border: 1px solid #ced4da !important;
+}
+
 .profile-error {
   padding: 0px;
 }
@@ -247,7 +280,7 @@ footer {
 }
 
 .field_with_errors .form-control, .field_with_errors .file-form-control {
-  border: 2px solid #fc7777;
+  border: 2px solid #fc7777 !important;
 }
 
 .error-field {
@@ -304,6 +337,7 @@ footer {
   font-size: 1.5em;
   color: #4a90e2;
 }
+
 .data_empty {
   background-color: #f0f0f0;
   height: 120px;
@@ -316,9 +350,4 @@ footer {
   padding: 20px;
   margin: 30px auto;
   max-width: 500px;
-}
-
-@media screen and (max-width: 1080px) {
-}
-@media screen and (max-width: 767px) {
 }

@@ -1,29 +1,27 @@
 <%= render partial: "shared/sidebar", locals: { nav: ["アカウント", "プロフィール"], url: ["account", "profile"], current: ["not-current-item", "current-item"] } %>
-        <h5>プロフィール</h5>
-      </div>
-      <div class ="profile-error">
-        <%= render "shared/error", obj:@user %>
-      </div>
-      <div class ="profile-inner justify-content-center">
-        <%= image_tag current_user.icon, class: 'user-icon' %>
-      </div>
-      <%= form_with model: @user, name: :profile_update do |f| %>
-        <div class ="profile-inner">
-          <%= f.label :icon ,"アイコン画像", class: "form-label w-25 require" %>
-          <%= f.file_field :icon, class:"icon", class: "w-75" %>
+          <h5>プロフィール</h5>
         </div>
-        <div class ="profile-inner">
-          <%= f.label :name ,"名前", class: "form-label w-25 require" %>
-          <%= f.text_field :name, class: "form-control w-75", placeholder: "名前を入力" %>
+        <div class ="profile-error">
+          <%= render "shared/error", obj:@user %>
         </div>
-        <div class ="profile-inner">
-          <%= f.label :introduction ,"自己紹介", class: "form-label w-25 require" %>
-          <%= f.text_area :introduction, class:"form-control w-75", rows: "5", placeholder: "自己紹介を入力" %>
-        </div>
-        <div class ="profile-inner border-0">
-          <%= f.submit "プロフィール更新", class:"btn btn-primary form-btn", name: :profile_update %>
-        </div>
-      <% end %>
+        <%= render "shared/content_icon", user: @user %>
+        <%= form_with model: @user, name: :profile_update do |f| %>
+          <div class ="content-inner">
+            <%= f.label :icon ,"アイコン画像", class: "form-label w-25 require" %>
+            <%= f.file_field :icon, class: "w-75" %>
+          </div>
+          <div class ="content-inner">
+            <%= f.label :name ,"名前", class: "form-label w-25 require" %>
+            <%= f.text_field :name, class: "form-control w-75", placeholder: "名前を入力" %>
+          </div>
+          <div class ="content-inner">
+            <%= f.label :introduction ,"自己紹介", class: "form-label w-25 require" %>
+            <%= f.text_area :introduction, class:"form-control w-75", rows: "5", placeholder: "自己紹介を入力" %>
+          </div>
+          <div class ="content-inner">
+            <%= f.submit "プロフィール更新", class:"btn btn-primary form-btn", name: :profile_update %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

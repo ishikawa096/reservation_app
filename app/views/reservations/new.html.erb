@@ -5,7 +5,7 @@
   </div>
   <%= form_with model: @reservation do |f| %>
     <div class="form-group">
-      <h5><%= "￥#{params[:room_rate]} / 日" %></h5>
+      <h5><i class="fa-solid fa-yen-sign"></i><%= " #{params[:room_rate]} / 日" %></h5>
     </div>
     <div class="form-group">
       <%= f.label :room_name ,"ルーム名：" %>
@@ -29,7 +29,7 @@
       <%= f.label :charge ,"合計金額", class: "label-small"  %>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">￥</span>
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-yen-sign"></i></span>
         </div>
         <%= f.number_field :charge, class:"form-control", placeholder: @charge.to_s, value: @charge, readonly: true %>
       </div>

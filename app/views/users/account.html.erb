@@ -1,15 +1,15 @@
 <%= render partial: "shared/sidebar", locals: { nav: ["アカウント", "プロフィール"], url: ["account", "profile"], current: ["current-item", "not-current-item"] } %>
           <h5>アカウント</h5>
         </div>
-        <div class ="profile-inner">
+        <div class ="content-inner">
           <label class="form-label w-25">メールアドレス</label>
           <p class="w-75"><%= @user.email %></p>
         </div>
-        <div class ="profile-inner">
+        <div class ="content-inner">
           <label class="form-label w-25">パスワード</label>
           <p class="w-75">**********</p>
         </div>
-        <div class ="profile-inner border-0">
+        <div class ="content-inner border-0">
           <%= link_to "編集", edit_user_registration_path, class: "btn btn-primary  form-btn" %>
         </div>
       </div>

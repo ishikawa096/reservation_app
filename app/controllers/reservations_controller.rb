@@ -2,8 +2,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reservations = current_user.reservations
-    @rooms = Room.where(params[Reservation.ids])
+    @reservations = current_user.reservations.order(:start_at)
   end
 
   def new
@@ -56,10 +55,9 @@ class ReservationsController < ApplicationController
   def destroy
   end
 
-     private
+  private
 
   def reservation_params
     params.require(:reservation).permit(:start_at, :end_at, :charge, :num_people, :room_id, :user_id, :room_image)
   end
-
 end
