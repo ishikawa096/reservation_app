@@ -1,0 +1,115 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.firstview {
+  background-image: image-url("img_cover_top.jpg");
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.top-content {
+  display: block;
+  height: 300px;
+  width: 40%;
+  min-width: 390px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .top-content {
+    min-width: 100% !important;
+  }
+}
+
+.top-search::before {
+  content: "エリア";
+  font-size: 0.8em;
+  display: block;
+  line-height: 2em;
+}
+
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.recommend-title {
+  display: block;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.recommend-area-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.recommend-area {
+  display: block;
+  min-height: 340px;
+  width: 50%;
+  background-size: cover;
+  border: none;
+  position: relative;
+  background-position: center;
+  margin: 1rem;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .3);
+}
+
+@media screen and (max-width: 1080px) {
+  .recommend-title {
+    max-width: 550px;
+  }
+  .recommend-area-container {
+    flex-wrap: wrap;
+  }
+  .recommend-area {
+    max-width: 270px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .recommend-area-container {
+    width: 100%;
+  }
+  .recommend-area {
+    min-width: none;
+    max-width: 500px;
+    width: 100%;
+    min-height: 140px;
+  }
+}
+
+.area-1 {
+  background-image: image-url("img_tokyo.jpg");
+}
+
+.area-2 {
+  background-image: image-url("img_osaka.jpg");
+}
+
+.area-3 {
+  background-image: image-url("img_kyoto.jpg");
+}
+
+.area-4 {
+  background-image: image-url("img_sapporo.jpg");
+}
+.area-label {
+  font-weight: 900;
+  font-size: 1.5em;
+  bottom: 0px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-shadow: 0px 2px 3px #606060;
+}

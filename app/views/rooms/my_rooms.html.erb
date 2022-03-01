@@ -1,0 +1,35 @@
+<div class="list-container">
+  <div class="p-4">
+    <h4>登録済みルーム一覧</h4>
+  </div>
+  <div class="table-container">
+    <table class="table list-table">
+      <thead>
+        <tr>
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>料金</th>
+          <th>作成日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @rooms.blank? %>
+          <tr>
+            <td colspan="5"> <div class="data_empty">登録済みルームはありません。</div></td>
+          </tr>
+        <% else %>
+          <% @rooms.each do |room| %>
+            <tr>
+              <td><%= image_tag room.image, class: "list-room-image" %></td>
+              <td><%= link_to "#{room.name}", room, class: "list-room-name" %></td>
+              <td><%= room.introduction %></td>
+              <td><%= room.rate.to_s(:currency, unit: "￥", format: "%u%n") %> /日</td>
+              <td><%= room.created_at.to_s(:datetime_jp) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

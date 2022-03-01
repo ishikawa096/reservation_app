@@ -1,0 +1,8 @@
+<div class="room-index-container">
+  <h4 class="col-12 p-0">検索結果： <%= Room.search(@area, @keyword).count %>件</h4>
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <%= render "shared/rooms_index_content", room: room %>
+    <% end %>
+  </div>
+</div>

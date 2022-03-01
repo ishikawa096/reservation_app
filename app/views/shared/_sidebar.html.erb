@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-sm-12 col-md-2 d-md-block sidebar">
+        <ul class="nav flex-lg-column flex-md-row text-right">
+          <% nav.zip(url, current) do |n,u,c| %>
+            <li class="sidebar-item">
+              <%= link_to "#{n}", "#{u}", class: "#{c}" %>
+            </li>
+          <% end %>
+        </ul>
+    </nav>
+
+    <div class="col-md-10 ml-sm-auto col-lg-10 px-4 bg-light">
+      <div class ="contents-container">
+        <div class ="content-inner">

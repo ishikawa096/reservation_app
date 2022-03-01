@@ -1,0 +1,36 @@
+<%= render partial: "shared/sidebar", locals: { nav: ["基本情報"], url: ["new"], current: ["current-item"] } %>
+        <h5>ルーム情報登録</h5>
+      </div>
+      <div class ="profile-error">
+        <%= render "shared/error", obj:@room %>
+      </div>
+      <%= form_with model: @room do |f| %>
+        <div class ="content-inner">
+          <%= f.label :name ,"ルーム名", class: "form-label w-25 require" %>
+          <%= f.text_field :name ,class:"form-control w-75", placeholder: "ルーム名を入力" %>
+        </div>
+        <div class ="content-inner">
+          <%= f.label :introduction ,"ルーム紹介", class: "form-label w-25 require" %>
+          <%= f.text_area :introduction ,class:"form-control w-75", rows: "5", placeholder: "ルーム説明を入力" %>
+        </div>
+        <div class ="content-inner">
+          <%= f.label :rate ,"料金", class: "form-label w-25 require" %>
+          <%= f.number_field :rate ,class:"form-control w-75", placeholder: "一日あたりの料金を入力" %>
+        </div>
+        <div class ="content-inner">
+          <%= f.label :address ,"住所", class: "form-label w-25 require" %>
+          <%= f.text_field :address ,class:"form-control w-75", placeholder: "住所を入力" %>
+        </div>
+        <div class ="content-inner">
+          <%= f.label :image ,"ルーム画像", class: "form-label w-25 require" %>
+          <%= f.file_field :image ,class:"file-form-control w-75" %>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class ="content-inner border-0">
+          <%= f.submit "登録", class:"btn btn-primary form-btn" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

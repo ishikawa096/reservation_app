@@ -1,0 +1,41 @@
+<div class="list-container">
+  <div class="p-4">
+    <h4>マイ予約一覧</h4>
+  </div>
+  <div class="table-container">
+    <table class="table list-table">
+      <thead>
+        <tr>
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>人数</th>
+          <th>合計金額</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @reservations.blank? %>
+          <tr>
+            <td colspan="8"><div class="data_empty">予約済みルームはありません。</div></td>
+          </tr>
+        <% else %>
+          <% @reservations.each do |reserv| %>
+            <tr>
+              <td><%= image_tag reserv.room.image, class: "list-room-image" %></td>
+              <td><%= link_to "#{reserv.room.name}", room_url(reserv.room_id), class: "list-room-name" %></td>
+              <td><%= reserv.room.introduction %></td>
+              <td><%= reserv.num_people %></td>
+              <td><%= reserv.charge.to_s(:currency, unit: "￥", format: "%u%n") %></td>
+              <td><%= reserv.start_at %></td>
+              <td><%= reserv.end_at %></td>
+              <td><%= reserv.created_at.to_s(:datetime_jp) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

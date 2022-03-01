@@ -1,0 +1,46 @@
+<div class="reserv-new-form">
+  <div class="form-group border-bottom mb-3">
+    <h4>予約内容確認</h4>
+    <%= render "shared/error", obj:@reservation %>
+  </div>
+  <%= form_with model: @reservation do |f| %>
+    <div class="form-group">
+      <h5><i class="fa-solid fa-yen-sign"></i><%= " #{params[:room_rate]} / 日" %></h5>
+    </div>
+    <div class="form-group">
+      <%= f.label :room_name ,"ルーム名：" %>
+      <%= "#{params[:room_name]}" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :start_at ,"開始日", class: "label-small"  %>
+      <%= f.date_field :start_at, class:"form-control", placeholder: "#{params[:start_at].to_s}", value: params[:start_at], readonly: true  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_at ,"終了日", class: "label-small"  %>
+      <%= f.date_field :end_at, class:"form-control", placeholder: "#{params[:end_at].to_s}", value: params[:end_at], readonly: true  %>
+    </div>
+    <div class="form-group border-bottom mb-3 p-1">
+      <p>使用日数：<%= @days %>日</p>
+    </div>
+    <div class="form-group border-bottom mb-3 p-1">
+      <%= "人数：#{params[:num_people].to_i}人" %>
+    </div>
+    <div class="form-group border-bottom mb-4">
+      <%= f.label :charge ,"合計金額", class: "label-small"  %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-yen-sign"></i></span>
+        </div>
+        <%= f.number_field :charge, class:"form-control", placeholder: @charge.to_s, value: @charge, readonly: true %>
+      </div>
+      <small>上記内容でよろしければ「予約を確定」を押してください</small>
+    </div>
+    <%= f.hidden_field :num_people, value: params[:num_people] %>
+    <%= f.hidden_field :room_id, value: params[:room_id] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="form-group">
+      <%= f.submit "予約を確定" ,class:"btn btn-primary btn-block mb-3" %>
+      <%= link_to "ルーム詳細に戻る", room_url(@room), class: "btn btn-secondary btn-block" %>
+    </div>
+  <% end %>
+</div>
