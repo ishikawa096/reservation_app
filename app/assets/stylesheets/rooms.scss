@@ -33,9 +33,16 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1080px) {
   .room-index-card {
     max-width: none !important;
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .room-index-card {
+    width: auto;
   }
 }
 
